@@ -67,7 +67,7 @@ export const data = [
   [2019.0, 1.860934648, 1.25837087, -3.091323329],
   [2020.0, 0, 0, 0],
 ];
-export function CurrentACBal(props) {
+export function currAccBal(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);

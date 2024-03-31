@@ -66,7 +66,7 @@ export const data = [
   [2019.0, 0, 0, 0],
   [2020.0, 0, 0, 0],
 ];
-export function NetInflowChart(props) {
+export function fdiNetInflows(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);

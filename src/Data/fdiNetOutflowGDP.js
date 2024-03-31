@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from "react";
+import { Chart } from "react-google-charts";
+import { useSelector } from "react-redux";
+
 export const data = [
     ['Year','China','India','USA'],
     ['1960,0,0,0'],
@@ -62,3 +66,53 @@ export const data = [
     ['2019,0.746612949,0.424046382,1.488742203'],
     ['2020,0,0,0']
 ];
+
+export function fdiNetOutflowGDP(props){
+    const [chartData, setchartData] = useState([]);
+    const range = useSelector((state) => state.countryRange.range);
+    const country = useSelector((state) => state.countryRange.country);
+    const filterData = () => {
+      let filteredData = [["year", country]];
+      let col = 0;
+      if (country == "USA") {
+        col = 6;
+      } else if (country == "INDIA") {
+        col = 4;
+      } else if (country == "China") {
+        col = 1;
+      } else {
+        setchartData(data);
+        return;
+      }
+      let startYear = range[0];
+      let endYear = range[1];
+      for (let i = 1; i < data.length; i++) {
+        let currYear = data[i][0];
+        if (currYear <= endYear && currYear >= startYear) {
+          filteredData.push([currYear, data[i][col]]);
+        }
+      }
+      setchartData(filteredData);
+    };
+  
+    useEffect(() => {
+      console.log(range, country);
+      filterData();
+    }, [range, country]);
+  
+    return (
+      <div style={{ marginBottom: "20px" }}>
+        <Chart
+          chartType="LineChart"
+          width="100%"
+          height="250px"
+          data={chartData}
+          options={{
+            hAxis: {
+              format: "#", // Use 'decimal' format to display integers without commas
+            },
+          }}
+        />
+      </div>
+    );
+}

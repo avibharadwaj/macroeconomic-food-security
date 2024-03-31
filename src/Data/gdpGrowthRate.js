@@ -66,7 +66,7 @@ export const data = [
   [2019, -7.964610411, 2.3, -3.486140408],
   [2020, 0, 0, 0],
 ];
-export function DataChart(props) {
+export function gdpGrowthRate(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);

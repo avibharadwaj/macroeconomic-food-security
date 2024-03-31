@@ -28,3 +28,53 @@ export const data = [['Year', 'China', 'India', 'USA'],
 [2018, 1852, 968660, 90510],
 [2019, 924, 1045884, 103685],
 [2020, 2508, 1199521, 112894]];
+
+export function saudiRice(props){
+    const [chartData, setchartData] = useState([]);
+    const range = useSelector((state) => state.countryRange.range);
+    const country = useSelector((state) => state.countryRange.country);
+    const filterData = () => {
+      let filteredData = [["year", country]];
+      let col = 0;
+      if (country == "USA") {
+        col = 6;
+      } else if (country == "INDIA") {
+        col = 4;
+      } else if (country == "China") {
+        col = 1;
+      } else {
+        setchartData(data);
+        return;
+      }
+      let startYear = range[0];
+      let endYear = range[1];
+      for (let i = 1; i < data.length; i++) {
+        let currYear = data[i][0];
+        if (currYear <= endYear && currYear >= startYear) {
+          filteredData.push([currYear, data[i][col]]);
+        }
+      }
+      setchartData(filteredData);
+    };
+  
+    useEffect(() => {
+      console.log(range, country);
+      filterData();
+    }, [range, country]);
+  
+    return (
+      <div style={{ marginBottom: "20px" }}>
+        <Chart
+          chartType="LineChart"
+          width="100%"
+          height="250px"
+          data={chartData}
+          options={{
+            hAxis: {
+              format: "#", // Use 'decimal' format to display integers without commas
+            },
+          }}
+        />
+      </div>
+    );
+}

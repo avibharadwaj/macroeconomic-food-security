@@ -66,7 +66,7 @@ export const data = [
   [2019.0, 3.085553092, 3.346970717, 4.314766319, 1.30744998, 5.3839676],
   [2020.0, 3.0, 3.30050138, 3.033525287, -1.70831043, 0],
 ];
-export function agriculture(props) {
+export function Agriculture(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);

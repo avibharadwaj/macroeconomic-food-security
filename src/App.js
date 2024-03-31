@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import './Data/Agriculture';
+import { Agriculture } from './Data/Agriculture';
+import { Provider } from 'react-redux';
 
 function App() {
   return (

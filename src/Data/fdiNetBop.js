@@ -67,7 +67,7 @@ export const data = [
     ['2020,-1.03E+11,-52782404735,-59141000000']
 ];
 
-export function fdiNetBop(props){
+export function FdiNetBop(props){
     const [chartData, setchartData] = useState([]);
     const range = useSelector((state) => state.countryRange.range);
     const country = useSelector((state) => state.countryRange.country);

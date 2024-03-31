@@ -68,7 +68,7 @@ export const data = [
 ];
 
 var chartData = [];
-export function manufacturingGDP(props) {
+export function ManufacturingGDP(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);

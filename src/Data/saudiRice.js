@@ -29,7 +29,7 @@ export const data = [['Year', 'China', 'India', 'USA'],
 [2019, 924, 1045884, 103685],
 [2020, 2508, 1199521, 112894]];
 
-export function saudiRice(props){
+export function SaudiRice(props){
     const [chartData, setchartData] = useState([]);
     const range = useSelector((state) => state.countryRange.range);
     const country = useSelector((state) => state.countryRange.country);

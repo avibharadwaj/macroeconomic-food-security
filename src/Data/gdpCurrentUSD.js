@@ -68,7 +68,7 @@ export const data = [
   [2020.0, 2622980000000.0, 14722700000000.0, 20936600000000.0],
 ];
 
-export function gdpCurrentUSD(props) {
+export function GdpCurrentUSD(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);

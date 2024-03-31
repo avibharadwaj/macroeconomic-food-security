@@ -1193,7 +1193,7 @@ export const data = [
     }
 ];
 
-export function debt(props){
+export function Debt(props){
     const [chartData, setchartData] = useState([]);
     const range = useSelector((state) => state.countryRange.range);
     const country = useSelector((state) => state.countryRange.country);

@@ -68,7 +68,7 @@ export const data = [
   [2020.0, 0, 0, 0, 0, 0],
 ];
 
-export function fertConsumptionKg(props) {
+export function FertConsumptionKg(props) {
   const [chartData, setchartData] = useState([]);
   const range = useSelector((state) => state.countryRange.range);
   const country = useSelector((state) => state.countryRange.country);
